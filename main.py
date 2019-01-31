@@ -10,6 +10,14 @@ from tinydb import TinyDB, Query
 import colorama
 
 
+def dirs_db():
+    return TinyDB('dirs.json', sort_keys=True, indent=4, separators=(',', ': '))
+
+
+def save_db():
+    return TinyDB('save_dir.json', sort_keys=True, indent=4, separators=(',', ': '))
+
+
 @click.group()
 def cli():
     pass
@@ -21,14 +29,14 @@ def set_save_dir(file_path: str):
     if not os.path.isdir(file_path):
         raise FileError(file_path, "Is not a directory")
     file_path = os.path.abspath(file_path)
-    db = TinyDB('save_dir.json')
+    db = save_db()
     db.purge()
     db.insert({'path': file_path})
 
 
 @cli.command('save-info')
 def print_save_dir():
-    db = TinyDB('save_dir.json')
+    db = save_db()
     if not db.all():
         raise ClickException("No save_dir path found on save_dir.json")
     path = db.all()[0]['path']
@@ -42,7 +50,7 @@ def add_dir(name: str, file_path: str):
     if not os.path.isdir(file_path):
         raise FileError(file_path, "Is not a directory")
     file_path = os.path.abspath(file_path)
-    db = TinyDB('dirs.json')
+    db = dirs_db()
     q = Query()
     doc = db.get(q["name"] == name)
     if doc:
@@ -55,7 +63,7 @@ def add_dir(name: str, file_path: str):
 
 @cli.command('list')
 def list_dir():
-    db = TinyDB('dirs.json')
+    db = dirs_db()
     all_docs = '\n'.join([f"{docs['name']}: {docs['path']}" for docs in db.all()])
     click.secho(all_docs, fg='blue')
 
@@ -63,7 +71,7 @@ def list_dir():
 @cli.command('remove')
 @click.argument('name')
 def remove_dir(name: str):
-    db = TinyDB('dirs.json')
+    db = dirs_db()
     q = Query()
     doc = db.get(q['name'] == name)
     if not doc:
@@ -75,7 +83,7 @@ def remove_dir(name: str):
 
 @cli.command('clone')
 def clone():
-    dirs = TinyDB('dirs.json')
+    dirs = dirs_db()
     save_path = TinyDB('save_dir.json').all()[0]['path']
     all_dirs = dirs.all()
     # with click.progressbar(all_dirs, empty_char=" ", fill_char="█", show_percent=True, show_pos=True) as bar:
