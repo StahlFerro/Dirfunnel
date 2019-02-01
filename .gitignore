@@ -110,3 +110,6 @@ venv.bak/
 # Dirclone-exclusive ignores
 dirs.json
 save_dir.json
+test/
+tests/
+

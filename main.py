@@ -32,6 +32,7 @@ def set_save_dir(file_path: str):
     db = save_db()
     db.purge()
     db.insert({'path': file_path})
+    click.secho(f"Save path set to: {file_path}", fg="green")
 
 
 @cli.command('save-info')
@@ -40,7 +41,7 @@ def print_save_dir():
     if not db.all():
         raise ClickException("No save_dir path found on save_dir.json")
     path = db.all()[0]['path']
-    click.secho(f'Save dir path: {path}', fg='cyan')
+    click.secho(f"Save dir path: {path}", fg="cyan")
 
 
 @cli.command('add')
@@ -65,7 +66,7 @@ def add_dir(name: str, file_path: str):
 def list_dir():
     db = dirs_db()
     all_docs = '\n'.join([f"{docs['name']}: {docs['path']}" for docs in db.all()])
-    click.secho(all_docs, fg='blue')
+    click.secho(all_docs, fg="blue")
 
 
 @cli.command('remove')

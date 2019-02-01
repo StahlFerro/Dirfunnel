@@ -1,7 +1,7 @@
 function Show-Menu {
-    [string]$Title = 'Dirclone' 
+    [string]$title = 'Dirclone'
     [string]$version = '0.0.1'
-    Write-Host "=============================== $Title v$version ==============================="
+    Write-Host "=============================== $title v$version ==============================="
     Write-Host "1. List target directories"
     Write-Host "2. List save directory"
     Write-Host "3. Add/update target directory"
@@ -12,7 +12,7 @@ function Show-Menu {
 }
 
 do {
-    venv\Scripts\Activate.ps1;
+#    venv\Scripts\Activate.ps1;
     Show-Menu;
     $input = Read-Host "Please enter a number. Enter q to quit";
     Write-Host
