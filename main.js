@@ -6,16 +6,17 @@ const path = require('path')
 let mainWindow = null
 const createWindow = () => {
     mainWindow = new BrowserWindow({
-        width: 800, height: 600, 
-        minWidth: 450, minHeight: 300,
+        width: 900, height: 600,
+        minWidth: 900, minHeight: 600,
         center: true
     })
+    mainWindow.setMenu(null);
     mainWindow.loadURL(require('url').format({
         pathname: path.join(__dirname, 'index.html'),
         protocol: 'file:',
         slashes: true
     }))
-    mainWindow.webContents.openDevTools()
+//    mainWindow.webContents.openDevTools()
     mainWindow.on('closed', () => {
         mainWindow = null
     })

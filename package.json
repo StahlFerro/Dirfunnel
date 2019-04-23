@@ -4,7 +4,10 @@
   "description": "Simple multidirectory cloning utility",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "css-build": "node-sass --omit-source-map-url sass/bulmamods.scss css/bulmamods.css",
+    "css-watch": "npm run css-build -- --watch",
+    "css-start": "npm run css-watch"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,9 @@
     "zerorpc": "git+https://github.com/fyears/zerorpc-node.git"
   },
   "devDependencies": {
+    "bulma": "^0.7.4",
     "electron": "^1.8.8",
-    "electron-packager": "^9.0.1"
+    "electron-packager": "^9.0.1",
+    "node-sass": "^4.11.0"
   }
 }

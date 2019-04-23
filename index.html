@@ -1,22 +1,48 @@
 <!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en" class="has-navbar-fixed-top">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"/>
+        <meta name="author" content="StahlFerro"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Dirfunnel</title>
-        <link rel="stylesheet" type="text/css" href="./css/bulma.css" />
+        <link rel="stylesheet" type="text/css" href="./css/bulmamods.css" />
     </head>
     <body>
+        <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+<!--            <a class="navbar-item" href="/">-->
+<!--                <img src="/static/favicons/android-chrome-256x256.png" alt="StahlFerro" width="30"-->
+<!--                     height="30"/><span style="padding-left:10px;">StahlFerro</span>-->
+<!--            </a>-->
+
+
+<!--            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">-->
+<!--                <span aria-hidden="true"></span>-->
+<!--                <span aria-hidden="true"></span>-->
+<!--                <span aria-hidden="true"></span>-->
+<!--            </a>-->
+        </div>
+
+        <div id="navbar-main" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="/videos/index.html" class="navbar-item">Videos</a>
+                <a href="/softwares/index.html" class="navbar-item">Softwares</a>
+            </div>
+        </div>
+        </nav>
+
         <section class="section">
             <div class="container">
                 <div class="content">
                     <p id="rowcount"></p>
-                    <table class="table">
+                    <table class="table" style="overflow: scroll; padding: 5px;">
                         <tbody id="dirlist_table">
                         </tbody>
                     </table>
+                    <p>bottom bar</p>
                 </div>
-            </div>            
+            </div>
         </section>
     </body>
     <script>
