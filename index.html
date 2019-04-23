@@ -7,6 +7,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Dirfunnel</title>
         <link rel="stylesheet" type="text/css" href="./css/bulmamods.css" />
+        <style>
+         /* https://github.com/jgthms/bulma/issues/1445 */
+            .navbar-item {
+              display: flex;
+            }
+
+            .navbar,
+            .navbar-menu,
+            .navbar-start,
+            .navbar-end {
+              align-items: stretch;
+              display: flex;
+              padding: 0;
+            }
+
+            .navbar-menu{
+              flex-grow: 1;
+              flex-shrink: 0;
+            }
+            .navbar-start{
+              justify-content: flex-start;
+              margin-right: auto;
+            }
+            .navbar-end{
+              justify-content: flex-end;
+              margin-left: auto;
+            }
+            .navbar .container {
+              display: flex;
+            }
+            .navbar-item {
+              display: flex;
+              align-items: center;
+            }
+
+        </style>
     </head>
     <body>
         <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
