@@ -1,0 +1,26 @@
+{
+  "name": "dirfunnel",
+  "version": "0.0.1",
+  "description": "Simple multidirectory cloning utility",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StahlFerro/ElectronPy.git"
+  },
+  "author": "StahlFerro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StahlFerro/ElectronPy/issues"
+  },
+  "homepage": "https://github.com/StahlFerro/ElectronPy#README.md",
+  "dependencies": {
+    "zerorpc": "git+https://github.com/fyears/zerorpc-node.git"
+  },
+  "devDependencies": {
+    "electron": "^1.8.8",
+    "electron-packager": "^9.0.1"
+  }
+}
