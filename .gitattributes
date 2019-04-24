@@ -25,4 +25,4 @@
 
 # Dirfunnel exclusion for Bulma css file
 # ============
-css/bulma.css linguist-vendored
+css/* linguist-vendored
