@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"python.pythonPath": ".\\venv\\Scripts\\python.exe",
+	"python.linting.pep8Enabled": true,
+	"python.linting.pylintPath": "venv/Scripts/pylint.exe",
+	"python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+	"python.linting.pylintEnabled": true
+}

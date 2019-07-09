@@ -1,4 +1,287 @@
 @charset "utf-8";
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+
+
+/* Color definitions */
+$cyan: #34caf8;
+$cyan-bright: #98e7ff;
+$white-d: #cccccc;
+$dark-2: #232629;
+$dark-3: #31363b;
+$dark-4: #444851;
+$dark-6: #616877;
+
+
+/* Sass variable overrides */
+$navbar-breakpoint: 0;
+$body-background-color: $dark-3;
+
+$table-color: $white-d;
+$table-background-color: $dark-3;
+$table-cell-padding: 0.5em 0.3em;
+
+$menu-item-hover-background-color: $dark-4;
+$menu-item-radius: 0px;
+
+$input-radius: 0px;
+$input-icon-active-color: $white-d;
+$input-icon-color: $white-d;
+
 @import "../node_modules/bulma/bulma.sass";
 
-$navbar-breakpoint: 0;
+
+/* Global font setup */
+@font-face {
+    font-family: 'Share Tech';
+    font-style: normal;
+    src: url('../webfonts/ShareTech-Regular.ttf') format('truetype');
+}
+body {
+    // -ms-overflow-style: scrollbar;
+    // -webkit-app-region: drag;
+    font-family: 'Share Tech', 'sans-serif';
+    font-size: 18px;
+}
+
+
+/* Color helpers */
+.is-dark-2 {
+    color: $dark-2;
+}
+.is-dark-3 {
+    color: $dark-3;
+}
+.is-cyan {
+    color: $cyan;
+}
+.is-white-d {
+    color: $white-d !important;
+}
+.has-background-dark-2 {
+    background-color: $dark-2;
+}
+.has-background-dark-3 {
+    background-color: $dark-3;
+}
+
+
+/* Color override for paragraphs, spans and labels */
+// p { color: $white-d !important; }
+// span { color: $white-d !important; }
+label { color: $white-d !important; }
+
+
+/* Global scrollbar definition */
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: #777; 
+}
+
+
+/* Draggable element definition */
+.frame-title-bar {
+    -webkit-app-region: drag !important;
+}
+#left_menu_panel {
+    -webkit-app-region: drag !important;
+}
+button, a, input {
+    -webkit-app-region: no-drag !important;
+}
+
+
+/* Window minimize and maximize buttons */
+a.minimize-button { 
+    padding-left: 5px;
+    padding-right: 5px;
+}
+a.minimize-button:hover {
+    background-color: $dark-6;
+    // color: #363636; 
+}
+a.exit-button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+a.exit-button:hover {
+    background-color: $danger;
+    // color: #363636;
+}
+
+
+/* Selected menu box */
+.menu-item {
+    border: 2px solid $dark-2;
+}
+.menu-item:hover {
+    border: 2px solid $dark-4;
+}
+.menu-item.is-selected {
+    border: 2px solid $cyan;
+}
+
+
+/* Borderless table helper css */
+.table.is-borderless td, th {
+    border: 0
+}
+
+
+/* Horizontal and vertical paddingless */
+.is-hpaddingless {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.is-vpaddingless {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+
+/* Image sequences scrollable grid-like table in Create panel */
+.sequence-cell {
+    border: 2px solid $white-d !important;
+}
+.sequence-grid tbody {
+    height:320px;
+    // border: 2px solid rebeccapurple !important;
+    border-collapse: collapse;
+    overflow: auto;
+    display: block;
+}
+.sequence-grid tr{
+    display: block;
+    // border: 2px solid rebeccapurple !important;
+    // border-collapse: collapse;
+}
+.sequence-grid td {
+    border: 2px solid $white-d !important;
+    border-collapse: collapse;
+    padding: 3px !important;
+    width: 98px;
+    height: 98px;
+}
+.seqdiv {
+    position: relative;
+}
+.del-anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.del-icon {
+    opacity: 0.3;
+    color: $danger;
+}
+.del-icon:hover {
+    opacity: 1.0;
+}
+
+
+/* Animated image (GIF/PNG) preview container in Create Panel */
+.prev-aimg-container {
+    // height: 150px;
+    // width: 150px;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+}
+
+
+
+
+table.aimg-control-table td{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+table.aimg-control-table label{
+    margin: 0px !important;
+}
+
+
+
+/* Animated image (GIF/PNG) previewing elements in Split panel */
+.aimg-container {
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+}
+.aimg-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.aimg-cell {
+    text-align: center !important; 
+    border: 2px solid $white-d !important;
+}
+
+
+/* Neon-cyan buttons. $cyan outlines with $dark-3 BG to match the global $dark-3 BG color */
+.button.is-neon-cyan{
+    background-color: $dark-3;
+    color: $cyan;
+    border: 2px solid $cyan;
+}
+.button.is-neon-cyan:hover, .button.is-neon-cyan.is-hovered{
+    border-color: $cyan-bright;
+}
+.button.is-neon-cyan:active, .button.is-neon-cyan.is-active {
+    background-color: $cyan;
+    border-color: $cyan;
+    color: $dark-3;
+}
+
+/* Neon-white buttons. */
+.button.is-neon-white{
+    background-color: $dark-3;
+    color: $white-d;
+    border: 2px solid $white-d;
+}
+.button.is-neon-white:hover, .button.is-neon-white.is-hovered{
+    border-color: $white;
+}
+.button.is-neon-white:active, .button.is-neon-white.is-active {
+    background-color: $white-d;
+    border-color: $white-d;
+    color: $dark-3;
+}
+
+
+/* Neon-white inputs. */
+.input.is-neon-white{
+    background-color: $dark-3;
+    color: $white-d;
+    box-shadow: none;
+    border: 2px solid $white-d;
+}
+.input.is-neon-white:hover{
+    border: 2px solid $white-d;
+}
+.input.is-neon-white:focus{
+    border: 2px solid $white;
+}
+.input.is-neon-white::placeholder{
+    color: $dark-6;
+}
+
+.select.is-neon-cyan select{
+    color: $white-d;
+    // background-color: $dark-3;
+    border: 2px solid $white-d;
+}
+
+.select.is-neon-cyan select:hover{
+    caret-color: $cyan;
+}
+
+
+// .create-msgbox {
+//     // height: 50px; 
+//     // line-height: 1px;
+// }

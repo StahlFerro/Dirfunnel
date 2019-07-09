@@ -5,13 +5,13 @@ import string
 
 import zerorpc
 
-from pysrc.controller import list_dir
+from pybrain.orm import add_update_directory, freeze_directories, list_directories, remove_directory
 
 
 class API(object):
 
-    def list_directories(self):
-        docs = list_dir()
+    def get_directories(self):
+        docs = list_directories()
         print(docs)
         return docs
 
@@ -30,3 +30,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
