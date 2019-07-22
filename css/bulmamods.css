@@ -7158,6 +7158,9 @@ body {
 label {
   color: #cccccc !important; }
 
+.silver-border {
+  border: 1px solid #cccccc; }
+
 /* Global scrollbar definition */
 ::-webkit-scrollbar {
   width: 7px; }
