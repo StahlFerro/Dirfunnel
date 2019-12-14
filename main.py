@@ -5,7 +5,7 @@ import string
 
 import zerorpc
 
-from pybrain.orm import add_update_directory, freeze_directories, list_directories, remove_directory
+from pycore.orm import add_update_directory, freeze_directories, list_directories, remove_directory
 
 
 class API(object):

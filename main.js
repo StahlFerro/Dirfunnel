@@ -2,8 +2,12 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
+const deploy_env = process.env.DEPLOY_ENV;
 let pyProc = null;
 let pyPort = null;
+let appath = app.getAppPath();
+console.log("DIRNAME", __dirname);
+console.log("APP PATH", appath);
 
 
 let mainWindow = null
@@ -13,21 +17,36 @@ const createWindow = () => {
         minWidth: 950, minHeight: 700,
         maxWidth: 950, maxHeight: 700,
         center: true, 
+        darkTheme: true,
+        webPreferences: {
+            nodeIntegration: true,
+        },
     });
     mainWindow.setMenu(null);
-    mainWindow.loadURL(require('url').format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-    mainWindow.webContents.openDevTools();
+    if (deploy_env && deploy_env == "DEV") { // Development environment
+        console.log("------ DEVELOPMENT VERSION ------");
+        mainWindow.loadURL("http://localhost:8080/");
+    }
+    else {
+        console.log("------ PRODUCTION VERSION ------");
+        // Production environment
+        mainWindow.loadURL(require('url').format({
+            pathname: path.join(__dirname, './dist/index.html'),
+            protocol: 'file:',
+            slashes: true
+        }));
+    }
+    mainWindow.webContents.openDevTools({mode: 'detach'});
     mainWindow.focus();
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+    createPyProc();
+    createWindow();
+});
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin'){
         app.quit();
@@ -40,7 +59,7 @@ app.on('activate', () => {
 })
 
 const selectPort = () => {
-    pyPort = 4242;
+    pyPort = 42069;
     return pyPort;
 }
 
@@ -60,5 +79,4 @@ const exitPyProc = () => {
     pyPort = null;
 }
 
-app.on('ready', createPyProc);
 app.on('will-quit', exitPyProc);

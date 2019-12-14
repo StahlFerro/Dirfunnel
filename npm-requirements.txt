@@ -1,0 +1,1 @@
+npm i -D cross-env vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env css-loader mini-css-extract-plugin file-loader node-loader html-webpack-plugin rimraf

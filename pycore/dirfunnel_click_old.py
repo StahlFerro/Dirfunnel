@@ -11,11 +11,11 @@ import colorama
 
 
 def dirs_db():
-    return TinyDB('config/dirs.json', sort_keys=True, indent=4, separators=(',', ': '))
+    return TinyDB('../config/dirs.json', sort_keys=True, indent=4, separators=(',', ': '))
 
 
 def save_db():
-    return TinyDB('config/save_dir.json', sort_keys=True, indent=4, separators=(',', ': '))
+    return TinyDB('../config/save_dir.json', sort_keys=True, indent=4, separators=(',', ': '))
 
 
 @click.group()

@@ -71,7 +71,7 @@ body {
 label { color: $white-d !important; }
 
 .silver-border {
-    border: 1px solid $white-d;
+    border: 2px solid $white-d;
 }
 
 /* Global scrollbar definition */
@@ -146,6 +146,16 @@ a.exit-button:hover {
 /* Image sequences scrollable grid-like table in Create panel */
 .sequence-cell {
     border: 2px solid $white-d !important;
+    width: 100%;
+}
+.sequence-grid thead {
+    display: block;
+    // border: 2px solid $white-d;
+    border-collapse: collapse;
+    width: 100%;
+}
+.sequence-grid th span {
+    color: $white-d;
 }
 .sequence-grid tbody {
     height:320px;
@@ -153,33 +163,17 @@ a.exit-button:hover {
     border-collapse: collapse;
     overflow: auto;
     display: block;
+    width: 100%;
 }
-.sequence-grid tr{
-    display: block;
-    // border: 2px solid rebeccapurple !important;
-    // border-collapse: collapse;
-}
+// .sequence-grid tr{
+//     display: block;
+// }
 .sequence-grid td {
     border: 2px solid $white-d !important;
     border-collapse: collapse;
     padding: 3px !important;
-    width: 98px;
-    height: 98px;
-}
-.seqdiv {
-    position: relative;
-}
-.del-anchor {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-.del-icon {
-    opacity: 0.3;
-    color: $danger;
-}
-.del-icon:hover {
-    opacity: 1.0;
+    // width: 98px;
+    // height: 98px;
 }
 
 

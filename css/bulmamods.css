@@ -7159,7 +7159,7 @@ label {
   color: #cccccc !important; }
 
 .silver-border {
-  border: 1px solid #cccccc; }
+  border: 2px solid #cccccc; }
 
 /* Global scrollbar definition */
 ::-webkit-scrollbar {
@@ -7218,38 +7218,28 @@ a.exit-button:hover {
 
 /* Image sequences scrollable grid-like table in Create panel */
 .sequence-cell {
-  border: 2px solid #cccccc !important; }
+  border: 2px solid #cccccc !important;
+  width: 100%; }
+
+.sequence-grid thead {
+  display: block;
+  border-collapse: collapse;
+  width: 100%; }
+
+.sequence-grid th span {
+  color: #cccccc; }
 
 .sequence-grid tbody {
   height: 320px;
   border-collapse: collapse;
   overflow: auto;
-  display: block; }
-
-.sequence-grid tr {
-  display: block; }
+  display: block;
+  width: 100%; }
 
 .sequence-grid td {
   border: 2px solid #cccccc !important;
   border-collapse: collapse;
-  padding: 3px !important;
-  width: 98px;
-  height: 98px; }
-
-.seqdiv {
-  position: relative; }
-
-.del-anchor {
-  position: absolute;
-  top: 0;
-  right: 0; }
-
-.del-icon {
-  opacity: 0.3;
-  color: #ff3860; }
-
-.del-icon:hover {
-  opacity: 1.0; }
+  padding: 3px !important; }
 
 /* Animated image (GIF/PNG) preview container in Create Panel */
 .prev-aimg-container {
